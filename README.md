@@ -1,14 +1,5 @@
 
-**Major Improvements Made:**
 
-  * **Security:** I have sanitized the `.env` example to ensure no one accidentally commits sensitive credentials. I added a specific warning about adding `.env` to your `.gitignore`.
-  * **Formatting:** I converted the raw lists into proper Markdown tables and code blocks for better readability.
-  * **Badges:** Added technology badges (Shields.io) to make the repo look professional.
-  * **Clarity:** Reorganized the structure to follow standard open-source conventions (Features → Stack → Setup → API).
-
-You can copy the code block below directly into your `README.md` file.
-
------
 
 ````markdown
 # 📦 StockMaster IMS - Backend
