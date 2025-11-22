@@ -1,14 +1,15 @@
 import { betterAuth } from "better-auth";
-import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient } from "@prisma/client";
+import { MongoClient } from "mongodb";
+import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { sendemail } from "../utils/email.js";
 
-const prisma = new PrismaClient();
+const client = new MongoClient(process.env.MONGODB_URL);
+const db = client.db();
 
 export const auth = betterAuth({
   trustedOrigins: ["http://localhost:3000"], // your frontend
-  database: prismaAdapter(prisma, {
-    provider: "postgresql",
+  database: mongodbAdapter(db, {
+    client,
   }),
   verification: {
     disableCleanup: false, // cleanup expired verification tokens
