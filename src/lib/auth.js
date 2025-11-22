@@ -67,8 +67,8 @@ export const auth = betterAuth({
   },
   emailAndPassword: {
     enabled: true,
-    maxPasswordLength: 6,
     minPasswordLength: 6,
+    maxPasswordLength: 12,
     requireEmailVerification: true,
     sendResetPassword: async ({ user, url, token }, request) => {
       const resetUrl = `${process.env.BETTER_AUTH_URL}/reset-password?token=${token}`;
@@ -97,18 +97,18 @@ export const auth = betterAuth({
     },
   },
 
-  socialProviders: {
-    google: {
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      redirectURI: "http://localhost:8080/api/auth/callback/google",
-    },
-    github: {
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      redirectURI: "http://localhost:8080/api/auth/callback/github",
-    },
-  },
+  // socialProviders: {
+  //   google: {
+  //     clientId: process.env.GOOGLE_CLIENT_ID,
+  //     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  //     redirectURI: "http://localhost:8080/api/auth/callback/google",
+  //   },
+  //   github: {
+  //     clientId: process.env.GITHUB_CLIENT_ID,
+  //     clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  //     redirectURI: "http://localhost:8080/api/auth/callback/github",
+  //   },
+  // },
   rateLimit: {
     enabled: true,
     window: 10,
